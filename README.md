@@ -1,16 +1,47 @@
-# niser_app
+# NISER App
 
-A new Flutter project.
+A Flutter App for NISERites.
 
-## Getting Started
+## ToDo
 
-This project is a starting point for a Flutter application.
+- [x] build a basic app
+- [x] Login Page
+- [ ] Dashboard / Home Page
+  - [ ] Drawer
+  - [ ] Actual Page
+- [ ] Canteen Menu
+  - [ ] Drawer
+  - [ ] Actual Page
+- [ ] Timetable
+  - [ ] Drawer
+  - [ ] Actual Page
+  - [ ] Connect to Backend
+- [ ] Archive
+  - [ ] Drawer
+  - [ ] Actual Page
+  - [ ] Connect to Backend
+- [ ] Listings
+  - [ ] Drawer
+  - [ ] Actual Page
+  - [ ] Connect to Backend
+- [ ] ...
+- [ ] Settings Page
+  - [ ] Drawer
+  - [ ] Account Settings
+    - [ ] change password
+    - [ ] ...
+  - [ ] App Settings
+    - [ ] ...
+  - [ ] ...
+- [ ] ...
 
-A few resources to get you started if this is your first Flutter project:
+## lib
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [pages/](.\lib\pages)
+  - [home.dart](.\lib\pages\home.dart)
+  - [login_page.dart](.\lib\pages\login_page.dart)
+- [utils/](.\lib\utils)
+  - [routes.dart](.\lib\utils\routes.dart)
+- [widgets/](.\lib\widgets)
+  - [drawer.dart](.\lib\widgets\drawer.dart)
+- [main.dart](.\lib\main.dart)
