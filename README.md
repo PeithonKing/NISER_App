@@ -37,11 +37,11 @@ A Flutter App for NISERites.
 
 ## lib
 
+- [main.dart](.\lib\main.dart)
 - [pages/](.\lib\pages)
   - [home.dart](.\lib\pages\home.dart)
   - [login_page.dart](.\lib\pages\login_page.dart)
-- [utils/](.\lib\utils)
-  - [routes.dart](.\lib\utils\routes.dart)
 - [widgets/](.\lib\widgets)
   - [drawer.dart](.\lib\widgets\drawer.dart)
-- [main.dart](.\lib\main.dart)
+- [utils/](.\lib\utils)
+  - [routes.dart](.\lib\utils\routes.dart)
