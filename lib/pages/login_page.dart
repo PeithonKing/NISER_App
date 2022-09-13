@@ -42,21 +42,10 @@ class LoginPage extends StatelessWidget {
     // String os = Platform.operatingSystem;
     // print(os);
 
-    return Material(
-        // child: Center(
-        //     child: Text(
-        //         'Login Page',
-        //         style: TextStyle(
-        //             fontSize: 20,
-        //             color: Colors.blue,
-        //             fontWeight: FontWeight.bold,
-        //         ),
-        //         textScaleFactor: 1.5,
-        //     ),
-        // ),
-
-        color: Colors.white,
-        child: SingleChildScrollView(
+    return Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Form(
             key: _formKey,
             child: Column(children: [
