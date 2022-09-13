@@ -1,5 +1,7 @@
 # NISER App
 
+(last updated on: 13-09-2022)
+
 A Flutter App for NISERites.
 
 ## ToDo
@@ -10,27 +12,27 @@ A Flutter App for NISERites.
   - [x] Drawer
   - [ ] Actual Page
 - [ ] Canteen Menu
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
 - [ ] Timetable
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
   - [ ] Connect to Backend
 - [ ] Archive
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
   - [ ] Connect to Backend
 - [ ] Listings
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
   - [ ] Connect to Backend
 - [ ] Lost and Found
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
   - [ ] Connect to Backend
 - [ ] ...
 - [ ] Settings Page
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Account Settings
     - [ ] change password
     - [ ] ...

@@ -54,7 +54,7 @@ class MyDrawer extends StatelessWidget {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              Navigator.pushNamed(context, MyRoutes.canteen_menu);
             },
           ),
 

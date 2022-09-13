@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'pages/home.dart';
 import 'utils/routes.dart';
 import 'pages/login_page.dart';
+import 'pages/canteen_menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,10 +28,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.loginRoute,
+      initialRoute: MyRoutes.canteen_menu,
       routes: {
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.canteen_menu: (context) => CanteenMenu(),
       },
     );
   }
