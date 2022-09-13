@@ -1,0 +1,40 @@
+{
+  "name": "Drawer",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "37b78d4b18e18a0f04c47146c2e54eb8",
+      "css": "canteen_menu",
+      "code": 59392,
+      "src": "material"
+    },
+    {
+      "uid": "fe4b70ed76eb9a48877632032b33c942",
+      "css": "timetable",
+      "code": 59393,
+      "src": "zocial"
+    },
+    {
+      "uid": "96ea1be71f597a5bdfc8f791ada4f651",
+      "css": "archive",
+      "code": 59394,
+      "src": "entypo"
+    },
+    {
+      "uid": "c819c6225685bae2eed1b8da13e629fa",
+      "css": "listings",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b2270284ed38dffa576900a69b320faa",
+      "css": "settings",
+      "code": 59396,
+      "src": "material"
+    }
+  ]
+}

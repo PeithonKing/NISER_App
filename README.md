@@ -7,7 +7,7 @@ A Flutter App for NISERites.
 - [x] build a basic app
 - [x] Login Page
 - [ ] Dashboard / Home Page
-  - [ ] Drawer
+  - [x] Drawer
   - [ ] Actual Page
 - [ ] Canteen Menu
   - [ ] Drawer
@@ -21,6 +21,10 @@ A Flutter App for NISERites.
   - [ ] Actual Page
   - [ ] Connect to Backend
 - [ ] Listings
+  - [ ] Drawer
+  - [ ] Actual Page
+  - [ ] Connect to Backend
+- [ ] Lost and Found
   - [ ] Drawer
   - [ ] Actual Page
   - [ ] Connect to Backend
