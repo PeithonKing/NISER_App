@@ -1,6 +1,6 @@
 # NISER App
 
-(last updated on: 13-09-2022)
+(last updated on: 15-09-2022)
 
 A Flutter App for NISERites.
 
@@ -47,7 +47,9 @@ A Flutter App for NISERites.
 - [pages/](.\lib\pages)
   - [home.dart](.\lib\pages\home.dart)
   - [login_page.dart](.\lib\pages\login_page.dart)
-- [widgets/](.\lib\widgets)
-  - [drawer.dart](.\lib\widgets\drawer.dart)
+  - [canteen_menu.dart](.\lib\pages\canteen_menu.dart)
 - [utils/](.\lib\utils)
   - [routes.dart](.\lib\utils\routes.dart)
+- [widgets/](.\lib\widgets)
+  - [drawer.dart](.\lib\widgets\drawer.dart)
+- [drawer_icons.dart](.\lib\drawer_icons.dart)
