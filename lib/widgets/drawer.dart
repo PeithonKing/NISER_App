@@ -3,16 +3,86 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "../drawer_icons.dart";
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../utils/routes.dart';
 
-class MyDrawer extends StatelessWidget {
+// Future<String> fetchAlbum() async {
+//   final response =
+//       await http.get(Uri.parse('http://192.168.0.104:8000/drawer_info/'));
+
+//   if (response.statusCode == 200) {
+//     // var a = jsonDecode(response.body);
+//     // var b = new Map()
+//     // b["name"] = a["username"];
+//     // b["email"] = a["email"];
+//     // b["dp"] = a["dp"]; // Display Picture
+//     // return b;
+//     print("a");
+//     set
+//     return response.body;
+//   } else {
+//     throw Exception('Failed to load album');
+//   }
+// }
+
+// class Album {
+//   final bool is_logged_in;
+//   final String username;
+//   final String email;
+//   final String dp;
+
+//   const Album({
+//     required this.is_logged_in,
+//     required this.username,
+//     required this.email,
+//     required this.dp,
+//   });
+
+//   factory Album.fromJson(Map<String, dynamic> json) {
+//     return Album(
+//       is_logged_in: json['is_logged_in'],
+//       username: json['username'],
+//       email: json['email'],
+//       dp: json['dp'],
+//     );
+//   }
+// }
+
+class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
+  // const MyDrawer({super.key});
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  late Future<String> a;
+  String name = "Anonymous";
+  String email = "Anonymous";
+  String dp = "http://192.168.0.104:8000/static/profile_pictures/anonymous.png"; // Display Picture
+
+  @override
+  void initState() {
+    super.initState();
+    // futureAlbum = fetchAlbum();
+    fetchAlbum();
+    // String name = a["name"];
+    // String email = a["email"];
+    // String dp = a["dp"]; // Display Picture
+  }
 
   @override
   Widget build(BuildContext context) {
-    const DP = "https://picsum.photos/100?image=11";  // Display Picture
-    // const DP = "assets/images/dp.jpg";
+    print("c");
+    // String name = "Aritra Mukhopadhyay";
+    // String email = "aritra.mukhopadhyay@niser.ac.in";
+    // String dp = "http://192.168.0.104:8000/static/profile_pictures/anonymous.png"; // Display Picture
+    // String name = a["name"];
+    // String email = a["email"];
+    // String dp = a["dp"]; // Display Picture
+    // const dp = "assets/images/dp.jpg";
     return Drawer(
       child: Container(
         color: Colors.deepPurple,
@@ -21,18 +91,20 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                accountName: Text("Aritra Mukhopadhyay"),
-                accountEmail: Text("aritra.mukhopadhyay@niser.ac.in"),
+                accountName: Text(name),
+                accountEmail: Text(email),
                 currentAccountPicture: CircleAvatar(
-                  // backgroundImage: AssetImage(DP),
-                  backgroundImage: NetworkImage(DP),
+                  // backgroundImage: AssetImage(dp),
+                  backgroundImage: NetworkImage(dp),
                 ),
               )),
 
-
           // Dashboard
           ListTile(
-            leading: Icon(CupertinoIcons.house_fill, color: Colors.white,),
+            leading: Icon(
+              CupertinoIcons.house_fill,
+              color: Colors.white,
+            ),
             // leading: Icon(Image.asset("assets/images/home.png"),)
             title: const Text(
               'Dashboard',
@@ -44,10 +116,12 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
-
           // Canteen Menu
           ListTile(
-            leading: Icon(DrawerIcons.canteen_menu, color: Colors.white,),
+            leading: Icon(
+              DrawerIcons.canteen_menu,
+              color: Colors.white,
+            ),
             title: const Text(
               'Canteen Menu',
               style: TextStyle(color: Colors.white),
@@ -58,10 +132,12 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
-
           //Timetable
           ListTile(
-            leading: Icon(DrawerIcons.timetable, color: Colors.white,),
+            leading: Icon(
+              DrawerIcons.timetable,
+              color: Colors.white,
+            ),
             title: const Text(
               'Timetable',
               style: TextStyle(color: Colors.white),
@@ -72,10 +148,12 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
-
           // Archive
           ListTile(
-            leading: Icon(DrawerIcons.archive, color: Colors.white,),
+            leading: Icon(
+              DrawerIcons.archive,
+              color: Colors.white,
+            ),
             title: const Text(
               'Archive',
               style: TextStyle(color: Colors.white),
@@ -86,10 +164,12 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
-
           // Listings
           ListTile(
-            leading: Icon(DrawerIcons.listings, color: Colors.white,),
+            leading: Icon(
+              DrawerIcons.listings,
+              color: Colors.white,
+            ),
             title: const Text(
               'Listings',
               style: TextStyle(color: Colors.white),
@@ -100,10 +180,12 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
-
           // Lost and Found
           ListTile(
-            leading: Icon(CupertinoIcons.square_favorites_fill, color: Colors.white,),
+            leading: Icon(
+              CupertinoIcons.square_favorites_fill,
+              color: Colors.white,
+            ),
             title: const Text(
               'Lost & Found',
               style: TextStyle(color: Colors.white),
@@ -122,10 +204,12 @@ class MyDrawer extends StatelessWidget {
             color: Colors.black12,
           ),
 
-
           // Settings
           ListTile(
-            leading: Icon(DrawerIcons.settings, color: Colors.white,),
+            leading: Icon(
+              DrawerIcons.settings,
+              color: Colors.white,
+            ),
             title: const Text(
               'Settings',
               style: TextStyle(color: Colors.white),
@@ -146,5 +230,21 @@ class MyDrawer extends StatelessWidget {
         ]),
       ),
     );
+  }
+
+  Future<void> fetchAlbum() async {
+    final response =
+        await http.get(Uri.parse('http://192.168.0.104:8000/drawer_info/'));
+
+    if (response.statusCode == 200) {
+      var a = jsonDecode(response.body);
+      setState(() {
+        name = a["username"];
+        email = a["email"];
+        dp = a["dp"]; // Display Picture
+      });
+    } else {
+      throw Exception('Failed to load album');
+    }
   }
 }

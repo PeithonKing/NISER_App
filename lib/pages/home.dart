@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
+import 'dart:io' show Platform;
+import '../utils/routes.dart';
+import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import '../widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,18 +11,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 30;
-    String name = "Aritra";
-
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Home Page"),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World $days days $name'),
-          ),
-        ),
-        drawer: MyDrawer());
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: const WebViewPlus(
+        javascriptMode: JavascriptMode.unrestricted,
+        initialUrl: 'http://192.168.0.104:8000/',
+        // initialUrl: 'assets/canteen-menu/index.html',
+      ),
+      drawer: const MyDrawer()
+    );
   }
 }
