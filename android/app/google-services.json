@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "376530416779",
+    "project_id": "appnotifications-28b81",
+    "storage_bucket": "appnotifications-28b81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376530416779:android:28d4d32a308b2c2255908e",
+        "android_client_info": {
+          "package_name": "com.example.niser_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376530416779-ffshleeanhhq2g7lb9vfjcpdke9sl242.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtyXGvZ5QSxWHtTB-e7h1SHyoGbDyC1aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376530416779-ffshleeanhhq2g7lb9vfjcpdke9sl242.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

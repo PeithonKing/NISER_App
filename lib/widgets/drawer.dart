@@ -3,9 +3,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "../drawer_icons.dart";
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../utils/routes.dart';
+import "../pages/home.dart";
+import "../main.dart";
+import "../settings.dart";
+
 
 // Future<String> fetchAlbum() async {
 //   final response =
@@ -63,15 +67,15 @@ class _MyDrawerState extends State<MyDrawer> {
   String email = "Anonymous";
   String dp = "http://192.168.0.104:8000/static/profile_pictures/anonymous.png"; // Display Picture
 
-  @override
-  void initState() {
-    super.initState();
-    // futureAlbum = fetchAlbum();
-    fetchAlbum();
-    // String name = a["name"];
-    // String email = a["email"];
-    // String dp = a["dp"]; // Display Picture
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // futureAlbum = fetchAlbum();
+  //   fetchAlbum();
+  //   // String name = a["name"];
+  //   // String email = a["email"];
+  //   // String dp = a["dp"]; // Display Picture
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -87,17 +91,17 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Container(
         color: Colors.deepPurple,
         child: ListView(children: [
-          DrawerHeader(
-              padding: EdgeInsets.zero,
-              child: UserAccountsDrawerHeader(
-                margin: EdgeInsets.zero,
-                accountName: Text(name),
-                accountEmail: Text(email),
-                currentAccountPicture: CircleAvatar(
-                  // backgroundImage: AssetImage(dp),
-                  backgroundImage: NetworkImage(dp),
-                ),
-              )),
+          // DrawerHeader(
+          //     padding: EdgeInsets.zero,
+          //     child: UserAccountsDrawerHeader(
+          //       margin: EdgeInsets.zero,
+          //       accountName: Text(name),
+          //       accountEmail: Text(email),
+          //       currentAccountPicture: CircleAvatar(
+          //         // backgroundImage: AssetImage(dp),
+          //         backgroundImage: NetworkImage(dp),
+          //       ),
+          //     )),
 
           // Dashboard
           ListTile(
@@ -107,12 +111,13 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
             // leading: Icon(Image.asset("assets/images/home.png"),)
             title: const Text(
-              'Dashboard',
+              'Home',
               style: TextStyle(color: Colors.white),
               textScaleFactor: 1.5,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(home);
+              // Navigator.pushNamed(context, MyRoutes.webRoute);
             },
           ),
 
@@ -128,7 +133,8 @@ class _MyDrawerState extends State<MyDrawer> {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.canteen_menu);
+              MyApp.wc?.loadUrl(canteen_menu);
+              // Navigator.pushNamed(context, MyRoutes.canteen_menu);
             },
           ),
 
@@ -144,7 +150,8 @@ class _MyDrawerState extends State<MyDrawer> {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(timetable);
+              // Navigator.pushNamed(context, MyRoutes.webRoute);
             },
           ),
 
@@ -160,7 +167,8 @@ class _MyDrawerState extends State<MyDrawer> {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(arc);
+              // Navigator.pushNamed(context, MyRoutes.webRoute);
             },
           ),
 
@@ -176,7 +184,7 @@ class _MyDrawerState extends State<MyDrawer> {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(listings);
             },
           ),
 
@@ -192,7 +200,8 @@ class _MyDrawerState extends State<MyDrawer> {
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(lnf);
+              // Navigator.pushNamed(context, MyRoutes.webRoute);
             },
           ),
 
@@ -211,12 +220,13 @@ class _MyDrawerState extends State<MyDrawer> {
               color: Colors.white,
             ),
             title: const Text(
-              'Settings',
+              'Settings Profile',
               style: TextStyle(color: Colors.white),
               textScaleFactor: 1.25,
             ),
             onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              MyApp.wc?.loadUrl(profile);
+              // Navigator.pushNamed(context, MyRoutes.webRoute);
             },
           ),
 
@@ -230,21 +240,5 @@ class _MyDrawerState extends State<MyDrawer> {
         ]),
       ),
     );
-  }
-
-  Future<void> fetchAlbum() async {
-    final response =
-        await http.get(Uri.parse('http://192.168.0.104:8000/drawer_info/'));
-
-    if (response.statusCode == 200) {
-      var a = jsonDecode(response.body);
-      setState(() {
-        name = a["username"];
-        email = a["email"];
-        dp = a["dp"]; // Display Picture
-      });
-    } else {
-      throw Exception('Failed to load album');
-    }
   }
 }
