@@ -16,6 +16,27 @@ import 'pages/login_page.dart';
 import 'pages/canteen_menu.dart';
 
 void main() async {
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
+  // print("Starting App");
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -61,11 +82,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.loginRoute,
+      initialRoute: MyRoutes.webRoute,
       routes: {
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        // MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.webRoute: (context) => WebPage(),
-        MyRoutes.canteen_menu: (context) => CanteenMenu(),
+        // MyRoutes.canteen_menu: (context) => CanteenMenu(),
       },
     );
   }
