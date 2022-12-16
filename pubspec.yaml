@@ -37,7 +37,7 @@ dependencies:
   # liquid_pull_to_refresh: ^3.0.1
   # flutter_session: ^0.1.1
   webview_flutter_plus: ^0.3.0+2
-  # http: ^0.13.5
+  http: ^0.13.5
   firebase_core: ^2.4.0
   firebase_messaging: ^14.1.4
 

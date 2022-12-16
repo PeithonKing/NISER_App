@@ -13,7 +13,7 @@ import "../settings.dart";
 
 // Future<String> fetchAlbum() async {
 //   final response =
-//       await http.get(Uri.parse('http://192.168.0.104:8000/drawer_info/'));
+//       await http.get(Uri.parse('$DOMAIN/drawer_info/'));
 
 //   if (response.statusCode == 200) {
 //     // var a = jsonDecode(response.body);
@@ -63,9 +63,9 @@ class MyDrawer extends StatefulWidget {
 
 class _MyDrawerState extends State<MyDrawer> {
   late Future<String> a;
-  String name = "Anonymous";
-  String email = "Anonymous";
-  String dp = "http://192.168.0.104:8000/static/profile_pictures/anonymous.png"; // Display Picture
+  // String name = "Anonymous";
+  // String email = "Anonymous";
+  // String dp = "$DOMAIN/static/profile_pictures/anonymous.png"; // Display Picture
 
   // @override
   // void initState() {
@@ -82,7 +82,7 @@ class _MyDrawerState extends State<MyDrawer> {
     print("c");
     // String name = "Aritra Mukhopadhyay";
     // String email = "aritra.mukhopadhyay@niser.ac.in";
-    // String dp = "http://192.168.0.104:8000/static/profile_pictures/anonymous.png"; // Display Picture
+    // String dp = "$DOMAIN/static/profile_pictures/anonymous.png"; // Display Picture
     // String name = a["name"];
     // String email = a["email"];
     // String dp = a["dp"]; // Display Picture

@@ -1,4 +1,4 @@
-const String DOMAIN = "http://192.168.0.103:8000";
+const String DOMAIN = "http://192.168.0.100:8000";
 const String canteen_menu = "https://www.niser.ac.in/hostels/canteenmenu/";
 const String timetable = "https://sdgniser.github.io/timetable/";
 const String login = DOMAIN + "/login";
