@@ -1,6 +1,6 @@
 # NISER App
 
-(last updated on: 15-09-2022)
+(last updated on: 18-12-2022)
 
 A Flutter App for NISERites.
 
@@ -8,33 +8,33 @@ A Flutter App for NISERites.
 
 - [x] build a basic app
 - [x] Login Page
-- [ ] Dashboard / Home Page
+- [x] Dashboard / Home Page
   - [x] Drawer
-  - [ ] Actual Page
-- [ ] Canteen Menu
+  - [x] Actual Page
+- [x] Canteen Menu
   - [x] Drawer
-  - [ ] Actual Page
-- [ ] Timetable
+  - [x] Actual Page
+- [x] Timetable
   - [x] Drawer
-  - [ ] Actual Page
-  - [ ] Connect to Backend
+  - [x] Actual Page
+  <!-- - [ ] Connect to Backend -->
 - [ ] Archive
   - [x] Drawer
   - [ ] Actual Page
-  - [ ] Connect to Backend
-- [ ] Listings
+  - [x] Connect to Backend
+- [x] Listings
   - [x] Drawer
-  - [ ] Actual Page
-  - [ ] Connect to Backend
+  - [x] Actual Page
+  - [x] Connect to Backend
 - [ ] Lost and Found
   - [x] Drawer
   - [ ] Actual Page
-  - [ ] Connect to Backend
+  - [x] Connect to Backend
 - [ ] ...
 - [ ] Settings Page
   - [x] Drawer
   - [ ] Account Settings
-    - [ ] change password
+    - [x] change password
     - [ ] ...
   - [ ] App Settings
     - [ ] ...
