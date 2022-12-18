@@ -10,7 +10,6 @@ import "../pages/home.dart";
 import "../main.dart";
 import "../settings.dart";
 
-
 // Future<String> fetchAlbum() async {
 //   final response =
 //       await http.get(Uri.parse('$DOMAIN/drawer_info/'));
@@ -90,153 +89,196 @@ class _MyDrawerState extends State<MyDrawer> {
     return Drawer(
       child: Container(
         color: Colors.deepPurple,
-        child: ListView(children: [
+        child: Column(children: [
           // DrawerHeader(
-          //     padding: EdgeInsets.zero,
-          //     child: UserAccountsDrawerHeader(
-          //       margin: EdgeInsets.zero,
-          //       accountName: Text(name),
-          //       accountEmail: Text(email),
-          //       currentAccountPicture: CircleAvatar(
-          //         // backgroundImage: AssetImage(dp),
-          //         backgroundImage: NetworkImage(dp),
-          //       ),
-          //     )),
+          //   padding: EdgeInsets.zero,
+          //   child: ListTile(
+          //     leading: Icon(
+          //       CupertinoIcons.house_fill,
+          //       color: Colors.white,
+          //     ),
+          //     // leading: Icon(Image.asset("assets/images/home.png"),)
+          //     title: const Text(
+          //       'Made With Love By Aritra!',
+          //       style: TextStyle(color: Colors.white),
+          //       textScaleFactor: 2,
+          //     ),
+          //     onTap: () {
+          //       MyApp.wc?.loadUrl(home);
+          //       Navigator.pop(context);
+          //       // Navigator.pushNamed(context, MyRoutes.webRoute);
+          //     },
+          //   ),
+          // ),
 
           // Dashboard
-          ListTile(
-            leading: Icon(
-              CupertinoIcons.house_fill,
-              color: Colors.white,
-            ),
-            // leading: Icon(Image.asset("assets/images/home.png"),)
-            title: const Text(
-              'Home',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.5,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(home);
-              // Navigator.pushNamed(context, MyRoutes.webRoute);
-            },
-          ),
 
-          // Canteen Menu
-          ListTile(
-            leading: Icon(
-              DrawerIcons.canteen_menu,
-              color: Colors.white,
+          Expanded(
+              child: Column(children: <Widget>[
+            SizedBox(height: 50),
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.house_fill,
+                color: Colors.white,
+              ),
+              // leading: Icon(Image.asset("assets/images/home.png"),)
+              title: const Text(
+                'Home',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.5,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(home);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.webRoute);
+              },
             ),
-            title: const Text(
-              'Canteen Menu',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(canteen_menu);
-              // Navigator.pushNamed(context, MyRoutes.canteen_menu);
-            },
-          ),
 
-          //Timetable
-          ListTile(
-            leading: Icon(
-              DrawerIcons.timetable,
-              color: Colors.white,
+            // Canteen Menu
+            ListTile(
+              leading: Icon(
+                DrawerIcons.canteen_menu,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Canteen Menu',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(canteen_menu);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.canteen_menu);
+              },
             ),
-            title: const Text(
-              'Timetable',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(timetable);
-              // Navigator.pushNamed(context, MyRoutes.webRoute);
-            },
-          ),
 
-          // Archive
-          ListTile(
-            leading: Icon(
-              DrawerIcons.archive,
-              color: Colors.white,
+            //Timetable
+            ListTile(
+              leading: Icon(
+                DrawerIcons.timetable,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Timetable',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(timetable);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.webRoute);
+              },
             ),
-            title: const Text(
-              'Archive',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(arc);
-              // Navigator.pushNamed(context, MyRoutes.webRoute);
-            },
-          ),
 
-          // Listings
-          ListTile(
-            leading: Icon(
-              DrawerIcons.listings,
-              color: Colors.white,
+            // Archive
+            ListTile(
+              leading: Icon(
+                DrawerIcons.archive,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Archive',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(arc);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.webRoute);
+              },
             ),
-            title: const Text(
-              'Listings',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(listings);
-            },
-          ),
 
-          // Lost and Found
-          ListTile(
-            leading: Icon(
-              CupertinoIcons.square_favorites_fill,
-              color: Colors.white,
+            // Listings
+            ListTile(
+              leading: Icon(
+                DrawerIcons.listings,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Listings',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(listings);
+                Navigator.pop(context);
+              },
             ),
-            title: const Text(
-              'Lost & Found',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(lnf);
-              // Navigator.pushNamed(context, MyRoutes.webRoute);
-            },
-          ),
 
-          const Divider(
-            height: 20,
-            thickness: 1,
-            // indent: 20,
-            endIndent: 0,
-            color: Colors.black12,
-          ),
-
-          // Settings
-          ListTile(
-            leading: Icon(
-              DrawerIcons.settings,
-              color: Colors.white,
+            // Lost and Found
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.square_favorites_fill,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Lost & Found',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(lnf);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.webRoute);
+              },
             ),
-            title: const Text(
-              'Settings Profile',
-              style: TextStyle(color: Colors.white),
-              textScaleFactor: 1.25,
-            ),
-            onTap: () {
-              MyApp.wc?.loadUrl(profile);
-              // Navigator.pushNamed(context, MyRoutes.webRoute);
-            },
-          ),
 
-          const Divider(
-            height: 20,
-            thickness: 1,
-            // indent: 20,
-            endIndent: 0,
-            color: Colors.black12,
-          ),
+            const Divider(
+              height: 20,
+              thickness: 1,
+              // indent: 20,
+              endIndent: 0,
+              color: Colors.black12,
+            ),
+
+            // Settings
+            ListTile(
+              leading: Icon(
+                DrawerIcons.settings,
+                color: Colors.white,
+              ),
+              title: const Text(
+                'Settings Profile',
+                style: TextStyle(color: Colors.white),
+                textScaleFactor: 1.25,
+              ),
+              onTap: () {
+                MyApp.wc?.loadUrl(profile);
+                Navigator.pop(context);
+                // Navigator.pushNamed(context, MyRoutes.webRoute);
+              },
+            ),
+
+            const Divider(
+              height: 20,
+              thickness: 1,
+              // indent: 20,
+              endIndent: 0,
+              color: Colors.black12,
+            ),
+          ])),
+          Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Column(
+                children: <Widget>[
+                  // Divider(),
+
+                  ListTile(
+                      // leading: Icon(Icons.settings),
+                      title: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Made with ❤️ by Aritra (www.github.com/PeithonKing)',
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.25,
+                    ),
+                  )),
+                  // ListTile(
+                  //   leading: Icon(Icons.help),
+                  //   title: Text('Instagram')
+                  // )
+                ],
+              )),
         ]),
       ),
     );
