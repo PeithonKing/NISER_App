@@ -56,13 +56,13 @@ void main() async {
 
   print('User granted permission: ${settings.authorizationStatus}');
 
-  // try {
-  //   final fcmToken = await FirebaseMessaging.instance.getToken();
-  //   print("FCM Token:$fcmToken");
-  //   await http.get(Uri.parse('$DOMAIN/device_token/$fcmToken'));
-  // } catch (e) {
-  //   print(e);
-  // }
+  try {
+    final fcmToken = await FirebaseMessaging.instance.getToken();
+    print("FCM Token:$fcmToken");
+    await http.get(Uri.parse('$DOMAIN/device_token/$fcmToken'));
+  } catch (e) {
+    print(e);
+  }
 
 
   runApp(MyApp());
