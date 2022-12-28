@@ -16,37 +16,14 @@ import 'pages/login_page.dart';
 import 'pages/canteen_menu.dart';
 
 void main() async {
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
-  // print("Starting App");
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   NotificationSettings settings = await messaging.requestPermission(
     alert: true,
-    announcement: false,
+    announcement: true,  // was false
     badge: true,
     carPlay: false,
     criticalAlert: false,
@@ -56,14 +33,9 @@ void main() async {
 
   print('User granted permission: ${settings.authorizationStatus}');
 
-  try {
-    final fcmToken = await FirebaseMessaging.instance.getToken();
-    print("FCM Token:$fcmToken");
-    await http.get(Uri.parse('$DOMAIN/device_token/$fcmToken'));
-  } catch (e) {
-    print(e);
-  }
-
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+  // print("FCM Token:$fcmToken");
+  http.get(Uri.parse('$DOMAIN/device_token/$fcmToken'));
 
   runApp(MyApp());
 }
