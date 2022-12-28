@@ -22,11 +22,14 @@ class WebPage extends StatefulWidget {
 
 }
 
+
+// WebViewController? controllerGlobal = MyApp.wc;
+
 class _WebPageState extends State<WebPage> {
 
   var web = WebViewPlus(
         javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: DOMAIN,
+        initialUrl: last_at,
         onWebViewCreated: (controller) {
                 MyApp.wc = controller;
               },
@@ -35,13 +38,30 @@ class _WebPageState extends State<WebPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Website"),
+    return WillPopScope(
+      onWillPop: () => handleBack(context), // handles back button being pressed
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Website"),
+        ),
+        body: web,
+        drawer: const MyDrawer()
       ),
-      body: web,
-      drawer: const MyDrawer()
     );
+  }
+}
+
+Future<bool> handleBack(BuildContext context) async {
+
+  if (await MyApp.wc!.webViewController.canGoBack()) {
+    print("onwill goback");
+    MyApp.wc?.webViewController.goBack();
+    return Future.value(false);
+  } else {
+    // Scaffold.of(context).showSnackBar(
+    //   const SnackBar(content: Text("No back history item")),
+    // );
+    return Future.value(true);
   }
 }
 

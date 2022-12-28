@@ -129,6 +129,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(home);
+                prefs!.setString('last_at', home);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.webRoute);
               },
@@ -147,6 +148,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(canteen_menu);
+                prefs!.setString('last_at', canteen_menu);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.canteen_menu);
               },
@@ -165,6 +167,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(timetable);
+                prefs!.setString('last_at', timetable);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.webRoute);
               },
@@ -183,6 +186,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(arc);
+                prefs!.setString('last_at', arc);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.webRoute);
               },
@@ -201,6 +205,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(listings);
+                prefs!.setString('last_at', listings);
                 Navigator.pop(context);
               },
             ),
@@ -218,6 +223,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(lnf);
+                prefs!.setString('last_at', lnf);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.webRoute);
               },
@@ -244,6 +250,7 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               onTap: () {
                 MyApp.wc?.loadUrl(profile);
+                prefs!.setString('last_at', profile);
                 Navigator.pop(context);
                 // Navigator.pushNamed(context, MyRoutes.webRoute);
               },
