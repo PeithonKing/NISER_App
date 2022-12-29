@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:niser_app/firebase_options.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import "package:firebase_core/firebase_core.dart";
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -18,10 +19,13 @@ import 'pages/canteen_menu.dart';
 
 String last_at = "";
 SharedPreferences? prefs;
+PendingDynamicLinkData? initialLink;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  initialLink = await FirebaseDynamicLinks.instance.getInitialLink();
 
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -41,12 +45,30 @@ void main() async {
   http.get(Uri.parse('$DOMAIN/device_token/$fcmToken'));
   // print("FCM Token:$fcmToken");
 
-  prefs = await SharedPreferences.getInstance();  // get shared preferences
-  last_at = prefs!.getString("last_at") ?? startat0;  // get last_at from shared preferences
-  prefs!.setString('last_at', last_at);  // set last_at to shared preferences
+  prefs = await SharedPreferences.getInstance(); // get shared preferences
+  last_at = prefs!.getString("last_at") ?? startat0; // get last_at from shared preferences
+  prefs!.setString('last_at', last_at); // set last_at to shared preferences
+
+  if (initialLink != null) {
+    final Uri deepLink = initialLink!.link;
+    // Example of using the dynamic link to push the user to a different screen
+    // Navigator.pushNamed(context, deepLink.path);
+    // deepLink.path.toString()
+    // print("initial link: $deepLink.path");
+
+    // handle(deepLink.path);
+    last_at = DOMAIN+deepLink.path;
+  }
+
 
   runApp(MyApp());
 }
+
+// void handle(String path) {
+//   // handle dynamic link
+//   last_at = path;
+//   http.get(Uri.parse('$DOMAIN/debug/$path'));
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

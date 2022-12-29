@@ -32,10 +32,10 @@ dependencies:
 
   webview_flutter_plus: ^0.3.0+2
   http: ^0.13.5
+  shared_preferences: ^2.0.15
   firebase_core: ^2.4.0
   firebase_messaging: ^14.1.4
   firebase_dynamic_links: ^5.0.10
-  shared_preferences: ^2.0.15
 
   # vibration: ^1.7.5
   # liquid_pull_to_refresh: ^3.0.1

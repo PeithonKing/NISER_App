@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:niser_app/settings.dart';
 import 'dart:io' show Platform;
@@ -8,7 +9,6 @@ import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 import '../widgets/drawer.dart';
 import "../main.dart";
 // import 'package:flutter_session/flutter_session.dart';
-
 
 class WebPage extends StatefulWidget {
   const WebPage({super.key});
@@ -22,37 +22,63 @@ class WebPage extends StatefulWidget {
 
 }
 
-
 // WebViewController? controllerGlobal = MyApp.wc;
 
-class _WebPageState extends State<WebPage> {
+class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
+  @override
+  initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      // print("resumed");
+
+      FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+        // Navigator.pushNamed(context, dynamicLinkData.link.path);
+        // handle(dynamicLinkData.link.path);
+        last_at = DOMAIN + dynamicLinkData.link.path;
+      }).onError((error) {
+        // Handle errors
+        print(error);
+      });
+      // controllerGlobal?.reload();
+    }
+  }
 
   var web = WebViewPlus(
-        javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: last_at,
-        onWebViewCreated: (controller) {
-                MyApp.wc = controller;
-              },
-        // initialUrl: 'assets/canteen-menu/index.html',
-      );
+    javascriptMode: JavascriptMode.unrestricted,
+    initialUrl: last_at,
+    onWebViewCreated: (controller) {
+      MyApp.wc = controller;
+    },
+    // initialUrl: 'assets/canteen-menu/index.html',
+  );
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => handleBack(context), // handles back button being pressed
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Website"),
-        ),
-        body: web,
-        drawer: const MyDrawer()
-      ),
+          appBar: AppBar(
+            title: Text("Website"),
+          ),
+          body: web,
+          drawer: const MyDrawer()),
     );
   }
 }
 
 Future<bool> handleBack(BuildContext context) async {
-
   if (await MyApp.wc!.webViewController.canGoBack()) {
     print("onwill goback");
     MyApp.wc?.webViewController.goBack();
@@ -64,4 +90,3 @@ Future<bool> handleBack(BuildContext context) async {
     return Future.value(true);
   }
 }
-
