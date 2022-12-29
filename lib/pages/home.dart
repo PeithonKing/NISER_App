@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:niser_app/settings.dart';
 import 'dart:io' show Platform;
 import '../utils/routes.dart';
-import 'package:webview_flutter_plus/webview_flutter_plus.dart';
+import 'package:flutter_webview_pro/webview_flutter.dart';
 import '../widgets/drawer.dart';
 import "../main.dart";
 // import 'package:flutter_session/flutter_session.dart';
@@ -46,7 +46,8 @@ class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
       FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
         // Navigator.pushNamed(context, dynamicLinkData.link.path);
         // handle(dynamicLinkData.link.path);
-        last_at = DOMAIN + dynamicLinkData.link.path;
+        // last_at = DOMAIN + dynamicLinkData.link.path;
+        MyApp.wc?.loadUrl(DOMAIN + dynamicLinkData.link.path);
       }).onError((error) {
         // Handle errors
         print(error);
@@ -55,7 +56,7 @@ class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
     }
   }
 
-  var web = WebViewPlus(
+  var web = WebView(
     javascriptMode: JavascriptMode.unrestricted,
     initialUrl: last_at,
     onWebViewCreated: (controller) {
@@ -79,9 +80,9 @@ class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
 }
 
 Future<bool> handleBack(BuildContext context) async {
-  if (await MyApp.wc!.webViewController.canGoBack()) {
+  if (await MyApp.wc!.canGoBack()) {
     print("onwill goback");
-    MyApp.wc?.webViewController.goBack();
+    MyApp.wc?.goBack();
     return Future.value(false);
   } else {
     // Scaffold.of(context).showSnackBar(

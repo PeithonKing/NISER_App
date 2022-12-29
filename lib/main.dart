@@ -3,7 +3,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:niser_app/firebase_options.dart';
-import 'package:webview_flutter_plus/webview_flutter_plus.dart';
+import 'package:flutter_webview_pro/webview_flutter.dart';
 import "package:firebase_core/firebase_core.dart";
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:http/http.dart' as http;
@@ -14,8 +14,8 @@ import "settings.dart";
 
 import 'pages/home.dart';
 import 'utils/routes.dart';
-import 'pages/login_page.dart';
-import 'pages/canteen_menu.dart';
+// import 'pages/login_page.dart';
+// import 'pages/canteen_menu.dart';
 
 String last_at = "";
 SharedPreferences? prefs;
@@ -73,7 +73,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static WebViewPlusController? wc;
+  static WebViewController? wc;
 
   @override
   Widget build(BuildContext context) {

@@ -11,4 +11,5 @@ const String listings = "$DOMAIN/listings";
 const String lnf = "$DOMAIN/lnf";
 const String profile = "$DOMAIN/profile";
 
-const String startat0 = home;  // As the app is installed on the phone, the app will start at the home page
+// As the app is installed on the phone, the app will start at the home page
+const String startat0 = home;
