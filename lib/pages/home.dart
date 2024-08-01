@@ -3,8 +3,8 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:niser_app/settings.dart';
-import 'dart:io' show Platform;
-import '../utils/routes.dart';
+// import 'dart:io' show Platform;
+// import '../utils/routes.dart';
 import 'package:flutter_webview_pro/webview_flutter.dart';
 import '../widgets/drawer.dart';
 import "../main.dart";
@@ -72,6 +72,26 @@ class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
       child: Scaffold(
           appBar: AppBar(
             title: Text("Website"),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () {
+                  MyApp.wc?.reload();
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  MyApp.wc?.goBack();
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.arrow_forward),
+                onPressed: () {
+                  MyApp.wc?.goForward();
+                },
+              ),
+            ],
           ),
           body: web,
           drawer: const MyDrawer()),
@@ -81,7 +101,7 @@ class _WebPageState extends State<WebPage> with WidgetsBindingObserver {
 
 Future<bool> handleBack(BuildContext context) async {
   if (await MyApp.wc!.canGoBack()) {
-    print("onwill goback");
+    // print("onwill goback");
     MyApp.wc?.goBack();
     return Future.value(false);
   } else {

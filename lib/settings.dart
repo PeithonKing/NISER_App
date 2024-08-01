@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-const String DOMAIN = "http://192.168.29.114:8000";
+const String DOMAIN = "http://10.2.2.35:8764";
 const String canteen_menu = "https://www.niser.ac.in/hostels/canteenmenu/";
 // const String timetable = "https://sdgniser.github.io/timetable/";
 const String timetable = "$DOMAIN/timetable";
